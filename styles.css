@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav > * {
+    z-index: 2;
+}
+
+
+.nav {
+    position: relative;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    justify-content: space-between;
+    background-image: url(./assets/movie-theater-signboard-blue_34230-295.avif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+.nav__img {
+    height: 60px;
+    width: auto;
+}
+
+.nav__link--list {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav__link a {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav__link--primary a {
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
