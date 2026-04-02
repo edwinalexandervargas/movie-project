@@ -5,43 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search</title>
     <script src="app.js"></script>
-    <script src="https://kit.fontawesome.com/decd14f2d7.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/decd14f2d7.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-        <div class="nav">
-                <img
-                src="./assets/movie-watching-png-entertainment-illustration-transparent-background_53876-1043784.avif"
-                class="nav__img"
-                alt=""/>
-                <ul class="nav__link--list">
-                    <li class="nav__link">
-                        <a href="" class="">Home</a>
-                    </li>
-                    <li class="nav__link">
-                        <a href="" class="">Search</a>
-                    </li>
-                    <li class="nav__link--primary">
-                        <a href="" class="">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="nav">
+      <img
+        src="./assets/movie-watching-png-entertainment-illustration-transparent-background_53876-1043784.avif"
+        class="nav__img"
+        alt=""
+      />
+      <ul class="nav__link--list">
+        <li class="nav__link">
+          <a href="" class="">Home</a>
+        </li>
+        <li class="nav__link">
+          <a href="" class="">Search</a>
+        </li>
+        <li class="nav__link--primary">
+          <a href="" class="">Contact</a>
+        </li>
+      </ul>
+    </div>
 
-
-    <section id="landing__page">
-        <div class="container">
-            <div class="row">
-                <div class="header__title">Browse our Movies</div>
-                <div class="input-group">
-                    <input type="text" class="header__search"
-                    placeholder="Search Movie">
-                    <i class="fa-solid fa-magnifying-glass header__icon" ></i>
-                </div>
-            </div>
+    <header class="search__header">
+      <div class="container">
+        <div class="row">
+          <h1>Browse our Movies</h1>
+          <div class="input-group">
+            <input
+              type="text"
+              class="header__search"
+              placeholder="Search Movie"
+            />
+            <i class="fa-solid fa-magnifying-glass header__icon"></i>
+          </div>
         </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="movies__header">
+            <h2 class="header__title">All Movies</h2>
+            <select name="filter" id="">
+              <option value="">Ratings</option>
+              <option value="">High to Low</option>
+              <option value="">Low to High</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </section>
-    
-
   </body>
 </html>
