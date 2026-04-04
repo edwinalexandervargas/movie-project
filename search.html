@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search</title>
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
     <script
       src="https://kit.fontawesome.com/decd14f2d7.js"
       crossorigin="anonymous"
@@ -47,19 +47,48 @@
       </div>
     </header>
 
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="movies__header">
-            <h2 class="header__title">All Movies</h2>
-            <select name="filter" id="">
-              <option value="">Ratings</option>
-              <option value="">High to Low</option>
-              <option value="">Low to High</option>
-            </select>
+    <main id="movies__main">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="movies__header">
+              <h2 class="header__title">All Movies</h2>
+              <select name="filter" id="">
+                <option value="">Ratings</option>
+                <option value="">High to Low</option>
+                <option value="">Low to High</option>
+              </select>
+            </div>
+            <div class="movies__loading">
+              <i class="fas fa-spinner movies__loading--spinner"></i>
+            </div>
+            <div class="movies"></div>
           </div>
         </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row row__column">
+          <a href="#">
+            <figure>
+              <img
+                src="./assets/movie-watching-png-entertainment-illustration-transparent-background_53876-1043784.avif"
+                class="footer__logo--img"
+                alt=""
+              />
+            </figure>
+          </a>
+          <div class="footer__list">
+            <a href="#" class="footer__link">Home</a>
+            <a href="#" class="footer__link">About</a>
+            <a href="#" class="footer__link">Books</a>
+            <a href="#" class="footer__link">Contact</a>
+          </div>
+          <div class="footer__copyright">Copyright &copy 2026 Movies</div>
+        </div>
       </div>
-    </section>
+    </footer>
   </body>
 </html>
