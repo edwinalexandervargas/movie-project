@@ -45,13 +45,13 @@ if (filter === "RATING") {
 }
 
 async function searchMovies(movies) {
-  const response = await fetch(`http://www.omdbapi.com/?apikey=72de7e1b&s=${movies}`);
+  const response = await fetch(`https://www.omdbapi.com/?apikey=72de7e1b&s=${movies}`);
   const data = await response.json();
   return data.Search;
 }
 
 async function getMovieDetails(imdbID) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=72de7e1b&i=${imdbID}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=72de7e1b&i=${imdbID}`)
     const data = await response.json();
     return data;
 }
