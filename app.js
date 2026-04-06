@@ -1,20 +1,26 @@
-// API key: https://www.omdbapi.com/?i=tt3896198&apikey=72de7e1b&
-
-// http://www.omdbapi.com/?apikey=72de7e1b&
-// 72de7e1b
-
 let movies;
 
-async function renderMovies(searchTerm) {
+async function renderMovies(searchTerm, filter) {
   const moviesWrapper = document.querySelector(".movies");
   const loadingWrapper = document.querySelector(".movies__loading");
 
+
 loadingWrapper.classList.add("movies__loading--visible");
-  if (!movies) {
-    movies = await searchMovies(searchTerm);
+  
+if (!movies) {
+    const results = await searchMovies(searchTerm);
+    movies = await Promise.all (
+        results.map(movie => getMovieDetails(movie.imdbID))
+    );
   }
 
 loadingWrapper.classList.remove("movies__loading--visible");
+
+if (filter === "RATING") {
+    movies.sort((a, b) => parseFloat(b.imdbRating) - parseFloat(a.imdbRating));
+} else if (filter === "RUNTIME") {
+    movies.sort((a, b) => parseInt(b.Runtime) - parseInt(a.Runtime))
+}
 
   const moviesHTML = movies
     .map((movie) => {
@@ -25,8 +31,11 @@ loadingWrapper.classList.remove("movies__loading--visible");
                 <div class="movie__title">
                     ${movie.Title}
                 </div>
-                <div class="movie__year">
-                    ${movie.Year}
+                <div class="movie__rating">
+                    ${movie.imdbRating}/10
+                </div>
+                <div class="movie__runtime">
+                    ${movie.Runtime}
                 </div>
             </div>`;
     })
@@ -36,11 +45,34 @@ loadingWrapper.classList.remove("movies__loading--visible");
 }
 
 async function searchMovies(movies) {
-  const response = await fetch(
-    `http://www.omdbapi.com/?apikey=72de7e1b&s=${movies}`,
-  );
+  const response = await fetch(`http://www.omdbapi.com/?apikey=72de7e1b&s=${movies}`);
   const data = await response.json();
   return data.Search;
 }
 
-renderMovies("jujutsu")
+async function getMovieDetails(imdbID) {
+    const response = await fetch(`http://www.omdbapi.com/?apikey=72de7e1b&i=${imdbID}`)
+    const data = await response.json();
+    return data;
+}
+
+function filterMovies(event) {
+    renderMovies(searchInput.value, event.target.value);
+}
+
+const searchInput = document.querySelector(".header__search");
+const searchIcon = document.querySelector(".header__icon");
+
+searchInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        movies = null;
+        renderMovies(searchInput.value);
+    }
+});
+
+searchIcon.addEventListener("click", function() {
+    movies = null;
+    renderMovies(searchInput.value);
+})
+
+renderMovies("fast");
